@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Yeni Nesil Pardus Yönetim Sistemi :)</h1>
+
+
+	<h:form id="form">
+
+		<p:inputText value="#{resourceUsage.messageToBeSent}">
+		</p:inputText>
+		<p:commandButton value="Kaynak Kullanım Bilgisi Getir" action="#{resourceUsage.sendAndReceive}"
+			update="@form" />
+
+
+		<br> <h:outputText value="Ahenk Kaynak Kullanım Durumu"
+				rendered="#{resourceUsage.outputText}" /> </br>
+
+		<br> <h:outputText value="#{resourceUsage.messageReceived}"
+				rendered="#{resourceUsage.outputText2}" /></br>
+
+
+
+		<p:dataTable var="resourceUsageInfo" value="#{resourceUsage.resourceUsageInfoList}"
+			rendered="#{resourceUsage.dataTable}">
+			<p:column>
+				<h:outputText value="#{resourceUsageInfo.key}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{resourceUsageInfo.value}" />
+			</p:column>
+
+
+		</p:dataTable>
+
+	</h:form>
+
+</h:body>
+</html>
